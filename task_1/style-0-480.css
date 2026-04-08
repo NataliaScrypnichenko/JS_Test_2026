@@ -1,16 +1,15 @@
 @media screen and (max-width: 480px){
     .form{
         width:380px;
-        height: 550px;
-        /*flex-direction: column;*/
-        /*margin: auto;*/
+        height: 600px;
+        background: blanchedalmond;
     }
     .name_value {
         width: 380px;
         height: 150px;
         flex-direction: column;
-        border: 3px solid #000000;
         margin-bottom: 10px;
+        background: blanchedalmond;
     }
     h3{
         margin:0 0 20px 20px;
@@ -20,30 +19,39 @@
         margin-bottom: 10px;
     }
     .name_value button{
-        width: 100px;
-        height: 40px;
-        border: black solid 2px;
         margin-left: 20px;
     }
     .result {
         width: 380px;
-        height: 300px;
-        border: 3px solid #000000;
+        height: 400px;
         flex-direction: column;
         align-items: center;
+        background: blanchedalmond;
     }
-    /*.result_info_p{*/
-    /*    margin-top: 20px;*/
-    /*}*/
     .info {
-        width: 380px;
-        height: 250px;
-        margin-left:0;
+        width: 340px;
+        height: 200px;
+        margin-left:10px;
         margin-right:0;
     }
-    .button_info {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 200px;
+    .checkbox_info{
+        appearance: none;
+        width: 10px;
+        height: 10px;
+        border:2px solid rgb(43, 87, 43);
+        margin-bottom: -1px;
+        border-radius: 20px;
     }
+    .checkbox_info:checked{
+        background-color: yellow;
+    }
+    .button_info {
+        width: 340px;
+        height: 100px;
+       margin: 0 0 0 10px;
+    }
+    .button_del{
+        width: 180px;
+    }
+
 }
