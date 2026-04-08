@@ -21,7 +21,7 @@ body{
 .name_value{
        width: 750px;
        height: 150px;
-       border: 4px solid rgb(0, 0, 0);
+       /*border: 3px solid rgb(0, 0, 0);*/
        display: flex;
        background: white;
 }
@@ -47,9 +47,8 @@ input{
 .result{
      width: 750px;
      height: 450px;
-     border: 2px solid rgb(0, 0, 0);
+     /*border: 3px solid rgb(0, 0, 0);*/
      display: flex;
-     align-items: baseline;
 }
 .result_info_p{
     margin-left: 20px;
@@ -66,10 +65,22 @@ input{
     appearance: none;
     width: 16px;
     height: 16px;
-    border:2px solid crimson;
+    /*border:2px solid crimson;*/
     margin-bottom: -3px;
 }
 .checkbox_info:checked{
     background-color: yellow;
 }
-
+.button_info{
+    width: 150px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom:50px ;
+    /*border:2px solid crimson;*/
+}
+.button_del{
+    width: 90px;
+}
