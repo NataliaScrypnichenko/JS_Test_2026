@@ -1,15 +1,10 @@
-//  <div id="info" class="info"></div>
-//
-//         <div id="buttonInfo" class="button_info">
-//             <button id="buttonSortName">Sort by Name </button>
-//             <button id="buttonSortValue">Sort by Value</button>
-//             <button id="buttonDelete">Delete</button>
+
 const input = document.getElementById("nameValue");
 const buttonAdd = document.getElementById("buttonAdd");
-const errorInfo = document.getElementById("error");
 const divInfo = document.getElementById("info");
+const errorInfo = document.getElementById("error");
 
-
+//активую кнопку додавання name=value divInfo
 buttonAdd.onclick = function () {
     //дыстаю інформацію з input
     let info = input.value.trim();
@@ -50,10 +45,12 @@ buttonAdd.onclick = function () {
 
 };
 
+// шукаю кнопки buttonSortName, buttonSortValue, buttonDelete
 const buttonSortName= document.getElementById("buttonSortName");
 const buttonSortValue = document.getElementById("buttonSortValue");
 const buttonDelete= document.getElementById("buttonDelete");
 
+//активую кнопку buttonSortName
 buttonSortName.onclick = function () {
     //створюю масив потрябний для sort
      let arr=[];
@@ -90,18 +87,46 @@ buttonSortName.onclick = function () {
 
 };
 
+// активую кнопку  buttonSortValue
 buttonSortValue.onclick = function () {
-    // let arr=[];
-    //
-    // let items = divInfo.children;
-    //
-    // for (let i = 0; i < items.length; i++) {
-    //     arr.push(items[i]);
-    // };
-    // arr.sort(function (a, b) {
-    //     let nameA = a.innerText.split('=')[1].trim();
-    //     let nameB = b.innerText.split('=')[1].trim();
-    //
-    //     if
-    // })
-}
+    //створюю масив потрябний для sort
+    let arr=[];
+    //створюю елмент який буде додаватися в масив
+    let items = divInfo.children;
+    // ітерую items тому що він складається з двох частин
+    for (let i = 0; i < items.length; i++) {
+        arr.push(items[i]);
+    };
+    // сортую по зростанню
+    arr.sort(function (a, b) {
+        let nameA = a.innerText.split('=')[1].trim();
+        let nameB = b.innerText.split('=')[1].trim();
+
+           return  nameA-nameB
+
+    })
+    //очищаю дів для запису нової інформації
+    divInfo.innerText = "";
+
+    // ітерую масив вже новий і додаю в дів
+    for (let i = 0; i < arr.length; i++){
+        divInfo.appendChild(arr[i]);
+    };
+};
+
+// активую кнопку buttonDelete
+buttonDelete.onclick = function () {
+     // створення змінної для видалення
+    let items = divInfo.children;
+
+    // ітерую масив з кінця щоб непрушувати вже існуючий індекси
+    for(let i = items.length - 1; i >= 0; i--){
+        // створюю checkbox, а потім провіряю якщо рядок відмічений, видалити його
+        let checkbox=items[i].querySelector('input');
+
+        if (checkbox.checked){
+            items[i].remove();
+        };
+    };
+
+};
