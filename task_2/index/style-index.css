@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://saldagorod.ru/images/photos/medium/article163.jpg");
+}
+.divInfo{
+    width: 600px;
+    height: 750px;
+    border: 4px solid rgba(24, 97, 209, 0.54);
+    /*margin: 10px 300px 10px 300px;*/
+    display: flex;
+    justify-content: center;
+    flex-flow:row  wrap;
+    align-content: stretch;
+      /*gap: 50px;*/
+    background: blanchedalmond;
+}
+.div_user{
+    width: 180px;
+    height: 90px;
+    border: 2px solid rgba(154, 151, 151, 0.94);
+    border-radius: 20px;
+    background: rgba(221, 216, 216, 0.94);
+    margin: 10px 40px 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.info_p{
+    color: rgba(39, 101, 212, 0.54);
+    margin-top: 5px;
+}
+.button_info{
+    width: 90px;
+    height: 20px;
+}
