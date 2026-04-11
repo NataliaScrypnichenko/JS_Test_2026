@@ -1,15 +1,3 @@
-//В index.html
-// 1 отримати масив об'єктів з endpoint`а https://jsonplaceholder.typicode.com/users
-// 2 Вивести id,name всіх user в index.html. Окремий блок для кожного user.
-// 3 Додати кожному блоку кнопку/посилання ,
-// при кліку на яку відбувається перехід  на сторінку user-details.html,
-// котра має детальну інфорацію про об'єкт на який клікнули
-
-//<form action="#" name="form1" >
-//    <div class="divInfo"  i>
-//
-//    </div>
-// </form>
 
 // let form1=document.forms['form1'];
 let divInfoUsers=document.getElementById("divInfoUsers");
