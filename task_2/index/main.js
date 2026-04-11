@@ -51,7 +51,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
        div.append(h2,p, button);
 
         divInfoUsers.appendChild(div);
-        // body.appendChild(divInfoUsers);
+        document. body.appendChild(divInfoUsers);
         // form1.appendChild(divInfoUsers);
       }
 
