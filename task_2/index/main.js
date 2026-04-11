@@ -36,17 +36,17 @@ fetch('https://jsonplaceholder.typicode.com/users')
        button.classList.add("button_info");
        button.innerText = "info";
 
-       button.onclick = function () {
-         ev.preventDefault();
-         fetch('https://jsonplaceholder.typicode.com/users/post'+ user.id )
-         .then(users => users.json())
-         .then(users => {
-             for (const user of users) {
-
-             }
-         })
-         //+ user.id
-       }
+       // button.onsubmit = function (ev) {
+       //   ev.preventDefault();
+       //   fetch('https://jsonplaceholder.typicode.com/users/post'+ user.id )
+       //   .then(users => users.json())
+       //   .then(users => {
+       //       for (const user of users) {
+       //
+       //       }
+       //   })
+       //   //+ user.id
+       // }
 
        div.append(h2,p, button);
 
