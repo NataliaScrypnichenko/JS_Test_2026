@@ -8,7 +8,7 @@ body{
     align-items: center;
     background-image: url("https://saldagorod.ru/images/photos/medium/article163.jpg");
 }
-.divInfo{
+.div_info{
     width: 600px;
     height: 750px;
     border: 4px solid rgba(24, 97, 209, 0.54);
