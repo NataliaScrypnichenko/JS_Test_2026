@@ -25,7 +25,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
        button.innerText = "info";
        
        button.onclick=function () {
-               window.location.href = `https://user-details.html?id=${user.id};`
+               window.location.href = `../user-details/user-details.html?id=${user.id}`;
        }
 
          div.append(h2,p, button);
