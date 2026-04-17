@@ -33,12 +33,48 @@ let blockUser = document.getElementById('blockUser');
           BS: ${user.company.bs}
      `;
 
+      blockUser.append(userDiv,buttonUserPost);
 
-
-      blockUser.append(userDiv);
-
-      document.body.append(blockUser);
+      document.body.append(blockUser, );
 
  })
 
+
+ let buttonUserPost = document.createElement('button');
+ buttonUserPost.classList.add('btn_user');
+
+ buttonUserPost.onclick = function () {
+        fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts?limit=5`)
+             .then(res => res.json())
+             .then(posts => {
+                   for (const post of posts) {
+                       console.log(post);
+                        let divBlockPost = document.createElement('div');
+                        divBlockPost.classList.add('div_block_post');
+
+                       let postDivElement = document.createElement('div');
+                       postDivElement.classList.add('postDiv');
+
+                       postDivElement.innerHTML += `titel: ${post.title}`
+
+                       let userPostComment = document.createElement('button');
+                       userPostComment.classList.add('btn_comment');
+
+                       userPostComment.onclick = function () {
+                           window.location.href = `../post-details/post-details.html?id=${post.id}`
+                       }
+
+
+
+                       divBlockPost.append(postDivElement, userPostComment);
+                       document.body.append(divBlockPost);
+                   }
+
+
+
+             })
+
+
+// потрібно подумати про ліміт
+ }
 
