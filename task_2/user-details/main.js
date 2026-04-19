@@ -47,6 +47,8 @@ let blockUser = document.getElementById('blockUser');
 
  buttonUserPost.onclick = function () {
 
+     postsContainer.innerText='';
+
      fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
          .then(res => res.json())
          .then(posts => {
