@@ -3,6 +3,9 @@
 
 let blockUser = document.getElementById('blockUser');
 
+ let buttonUserPost = document.createElement('button');
+ buttonUserPost.classList.add('btn_user');
+ buttonUserPost.innerText = `post of current user`
 
  fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
  .then(res => res.json())
@@ -39,42 +42,33 @@ let blockUser = document.getElementById('blockUser');
 
  })
 
-
- let buttonUserPost = document.createElement('button');
- buttonUserPost.classList.add('btn_user');
+ let postsContainer = document.createElement('div');
+ postsContainer.classList.add('posts_container');
 
  buttonUserPost.onclick = function () {
-        fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts?limit=5`)
-             .then(res => res.json())
-             .then(posts => {
-                   for (const post of posts) {
-                       console.log(post);
-                        let divBlockPost = document.createElement('div');
-                        divBlockPost.classList.add('div_block_post');
 
-                       let postDivElement = document.createElement('div');
-                       postDivElement.classList.add('postDiv');
+     fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
+         .then(res => res.json())
+         .then(posts => {
+             for (const post of posts) {
+                 console.log(post);
+                 let divBlockPost = document.createElement('div');
+                 divBlockPost.classList.add('div_block_post');
 
-                       postDivElement.innerHTML += `titel: ${post.title}`
+                 let postDivElement = document.createElement('div');
+                 postDivElement.classList.add('post_div');
+                 postDivElement.innerHTML = post.title;
 
-                       let userPostComment = document.createElement('button');
-                       userPostComment.classList.add('btn_comment');
+                 let buttonPostComment = document.createElement('button');
+                 buttonPostComment.classList.add('btn_comment');
 
-                       userPostComment.onclick = function () {
-                           window.location.href = `../post-details/post-details.html?id=${post.id}`
-                       }
+                 buttonPostComment.onclick = function () {
+                     window.location.href = `../post-details/post-details.html?id=${post.id}`
+                 }
 
-
-
-                       divBlockPost.append(postDivElement, userPostComment);
-                       document.body.append(divBlockPost);
-                   }
-
-
-
-             })
-
-
-// потрібно подумати про ліміт
+                 divBlockPost.append(postDivElement, buttonPostComment);
+                 postsContainer.appendChild(divBlockPost);
+             }
+         })
+     document.body.appendChild(postsContainer)
  }
-
