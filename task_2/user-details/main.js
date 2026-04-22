@@ -2,18 +2,18 @@
  let userId = url.searchParams.get('id');
 
 let blockUser = document.getElementById('blockUser');
+blockUser.classList.add('block_user');
 
  let buttonUserPost = document.createElement('button');
  buttonUserPost.classList.add('btn_user');
- buttonUserPost.innerText = `post of current user`
+ buttonUserPost.innerText = `post of current user`;
 
  fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
  .then(res => res.json())
  .then(user => {
-     console.log(user)
-
+     // console.log(user)
       let userDiv = document.createElement('div');
-        userDiv.classList.add('userDiv');
+        userDiv.classList.add('user_div');
 
      userDiv.innerText = `
         ID: ${user.id}
@@ -40,7 +40,7 @@ let blockUser = document.getElementById('blockUser');
 
       document.body.append(blockUser, );
 
- })
+ });
 
  let postsContainer = document.createElement('div');
  postsContainer.classList.add('posts_container');
@@ -63,14 +63,15 @@ let blockUser = document.getElementById('blockUser');
 
                  let buttonPostComment = document.createElement('button');
                  buttonPostComment.classList.add('btn_comment');
+                 buttonPostComment.innerText='details';
 
                  buttonPostComment.onclick = function () {
                      window.location.href = `../post-details/post-details.html?id=${post.id}`
-                 }
+                 };
 
                  divBlockPost.append(postDivElement, buttonPostComment);
                  postsContainer.appendChild(divBlockPost);
-             }
-         })
-     document.body.appendChild(postsContainer)
- }
+             };
+         });
+     document.body.appendChild(postsContainer);
+ };
