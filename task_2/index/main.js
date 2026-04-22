@@ -1,7 +1,4 @@
-
-
 let divInfoUsers=document.getElementById("divInfoUsers");
-
 
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(users => users.json())
@@ -26,11 +23,11 @@ fetch('https://jsonplaceholder.typicode.com/users')
        
        button.onclick=function () {
                window.location.href = `../user-details/user-details.html?id=${user.id}`;
-       }
+       };
 
          div.append(h2,p, button);
         divInfoUsers.appendChild(div);
         document.body.append(divInfoUsers);
-      }
+      };
 
-    })
+    });

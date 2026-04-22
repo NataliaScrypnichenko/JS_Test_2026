@@ -6,19 +6,16 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("https://saldagorod.ru/images/photos/medium/article163.jpg");
+    background-image: url("https://media.istockphoto.com/id/1085737660/photo/abstract-geometric-wire-frame-data-landscape.jpg?s=2048x2048&w=is&k=20&c=HwbqEL19i9NdAJuGjbVgBCk90grAXU1K-Yv0LSHctm4=");
 }
 .div_info{
     width: 600px;
     height: 750px;
-    border: 4px solid rgba(24, 97, 209, 0.54);
-    /*margin: 10px 300px 10px 300px;*/
     display: flex;
     justify-content: center;
     flex-flow:row  wrap;
     align-content: stretch;
-      /*gap: 50px;*/
-    background: blanchedalmond;
+    background: rgba(99, 31, 114, 0.47);
 }
 .div_user{
     width: 180px;
@@ -34,10 +31,15 @@ body{
     gap: 10px;
 }
 .info_p{
-    color: rgba(39, 101, 212, 0.54);
+    color: rgb(128, 90, 96);
     margin-top: 5px;
 }
 .button_info{
     width: 90px;
     height: 20px;
+    border-radius: 15px;
+    border: none;
+}
+.button_info:hover{
+    color: rgba(209, 45, 224, 0.47);
 }
