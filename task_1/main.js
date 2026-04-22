@@ -9,7 +9,7 @@ buttonAdd.onclick = function () {
     //дыстаю інформацію з input
     let info = input.value.trim();
     // за допомоги match прописую яка повинна бути інформація,можна писати любою мовою
-    let infoMatch = info.match(/^([\p{L}]+)\s*=\s*([0-9]+)$/u);
+    let infoMatch = info.match(/^([a-zA-Z]+)\s*=\s*([a-zA-Z0-9]+)$/);
 
     //провіряэмо чи правильно вели інформацію
     if (infoMatch) {
@@ -99,10 +99,10 @@ buttonSortValue.onclick = function () {
     };
     // сортую по зростанню
     arr.sort(function (a, b) {
-        let nameA = a.innerText.split('=')[1].trim();
-        let nameB = b.innerText.split('=')[1].trim();
+        let valueA = +(a.innerText.split('=')[1].trim());
+        let valueB =+( b.innerText.split('=')[1].trim());
 
-           return  nameA-nameB
+           return  valueA-valueB
 
     })
     //очищаю дів для запису нової інформації
