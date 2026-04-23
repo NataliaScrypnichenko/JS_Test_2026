@@ -1,67 +1,62 @@
-
 const input = document.getElementById("nameValue");
 const buttonAdd = document.getElementById("buttonAdd");
 const divInfo = document.getElementById("info");
 const errorInfo = document.getElementById("error");
 
-//активую кнопку додавання name=value divInfo
+//activate the add button name=value divInfo
 buttonAdd.onclick = function () {
-    //дыстаю інформацію з input
+    //I get information from input
     let info = input.value.trim();
-    // за допомоги match прописую яка повинна бути інформація,можна писати любою мовою
-    let infoMatch = info.match(/^([a-zA-Z]+)\s*=\s*([a-zA-Z0-9]+)$/);
+    // using match I specify what information should be
+    let infoMatch = info.match(/^([a-zA-Z0-9]+)\s*=\s*([a-zA-Z0-9]+)$/);
 
-    //провіряэмо чи правильно вели інформацію
+    //I check if the information is entered correctly.
     if (infoMatch) {
-        // створю параграф де буде інформація з input
+        //I will create a paragraph where there will be information from input.
         let p = document.createElement("p");
         p.classList.add("info_p");
         p.innerText = info;
 
-        // створюю checkbox для вибору інформації щоб її видалити
+        // I create a checkbox to select information to delete.
         let checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.classList.add("checkbox_info");
 
-        // прописую форму  тексту для заповнення в divInfo
+        // I write the text form to fill in divInfo
         p.innerText = infoMatch[1] +"=" + infoMatch[2] + '';
         p.appendChild(checkbox);
 
-        //додаю інформацію divInfo
+        //add information divInfo
         divInfo.appendChild(p);
 
-        // якщо все вірно інформація про помилку не видається
+        // If all the information is correct, no error is displayed.
         errorInfo.classList.add("error_info");
         errorInfo.classList.add("error_text");
         errorInfo.innerText = "";
     } else {
         errorInfo.innerText = " The information written is incorrect!!! Name is letters and Value is numbers.";
-
         input.innerText = ""
-    }
-    ;
-    // чиститься  поле input
+    };
+    // the input field is cleared
     input.value = "";
-
 };
 
-// шукаю кнопки buttonSortName, buttonSortValue, buttonDelete
+// looking for buttons buttonSortName, buttonSortValue, buttonDelete
 const buttonSortName= document.getElementById("buttonSortName");
 const buttonSortValue = document.getElementById("buttonSortValue");
 const buttonDelete= document.getElementById("buttonDelete");
 
-//активую кнопку buttonSortName
+//I activate the buttonSortName
 buttonSortName.onclick = function () {
-    //створюю масив потрябний для sort
+    //I create an array that is needed for sort
      let arr=[];
-    //створюю елмент який буде додаватися в масив
+    //I will create an element that will be added to the array.
      let items = divInfo.children;
-     // ітерую items тому що він складається з двох значень
+     // I'm iterating over items because it consists of two values.
      for (let i = 0; i < items.length; i++) {
          arr.push(items[i]);
-
      };
-     // за допомого методу відсортую Name
+     // using the method Name I will sort
      arr.sort(function (a, b) {
          let nameA = a.innerText.split('=')[0].trim();
          let nameB = b.innerText.split('=')[0].trim();
@@ -75,58 +70,55 @@ buttonSortName.onclick = function () {
          if( nameA === nameB ) {
              return 0;
          };
-
      });
-    //очищаю дів для запису нової інформації
+    //I clear the divs to record new information.
     divInfo.innerText = "";
 
-    // ітерую масив вже новий і додаю в дів
+    // I iterate over the new array and add it to the divs.
     for (let i = 0; i < arr.length; i++){
         divInfo.appendChild(arr[i]);
     };
-
 };
 
-// активую кнопку  buttonSortValue
+//I activate the buttonSortValue button
 buttonSortValue.onclick = function () {
-    //створюю масив потрябний для sort
+    //I will create the array needed for sort.
     let arr=[];
-    //створюю елмент який буде додаватися в масив
+    //I create an element that will be added to the array.
     let items = divInfo.children;
-    // ітерую items тому що він складається з двох частин
+    // I iterate over items because it consists of two parts.
     for (let i = 0; i < items.length; i++) {
         arr.push(items[i]);
     };
-    // сортую по зростанню
+    // I sort by height.
     arr.sort(function (a, b) {
         let valueA = +(a.innerText.split('=')[1].trim());
         let valueB =+( b.innerText.split('=')[1].trim());
 
            return  valueA-valueB
 
-    })
-    //очищаю дів для запису нової інформації
+    });
+    //I clear the divs to record new information.
     divInfo.innerText = "";
 
-    // ітерую масив вже новий і додаю в дів
+    // I iterate over the new array and add it to the divs.
     for (let i = 0; i < arr.length; i++){
         divInfo.appendChild(arr[i]);
     };
 };
 
-// активую кнопку buttonDelete
+// I activate the buttonDelete button
 buttonDelete.onclick = function () {
-     // створення змінної для видалення
+     // creating a variable to delete
     let items = divInfo.children;
 
-    // ітерую масив з кінця щоб непрушувати вже існуючий індекси
+    // I iterate the array from the end so as not to overwrite existing indexes.
     for(let i = items.length - 1; i >= 0; i--){
-        // створюю checkbox, а потім провіряю якщо рядок відмічений, видалити його
+        // I create a checkbox, and then check if the row is checked, delete it
         let checkbox=items[i].querySelector('input');
 
         if (checkbox.checked){
             items[i].remove();
         };
     };
-
 };
